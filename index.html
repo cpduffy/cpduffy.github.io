@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Colin Duffy</title>
+    <meta name="description" content="Personal site for Colin Duffy.">
+    <meta name="theme-color" content="#0a0a0a">
+    <!-- Open Graph / Twitter -->
+    <meta property="og:title" content="Colin Duffy">
+    <meta property="og:description" content="Personal site for Colin Duffy.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://example.com/">
+    <meta property="og:image" content="https://example.com/og.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <style>
+        /*
+      Minimal CSS inspired by em0sh.com & nat.org
+      - System monospace stack by default (fast, no webfonts)
+      - Easy switch to Berkeley Mono later: see the @font-face block
+    */
+
+        /* When you license Berkeley Mono later, drop the WOFF2 in /fonts and uncomment:
+    @font-face {
+      font-family: "Berkeley Mono";
+      src: url("/fonts/berkeley-mono.woff2") format("woff2");
+      font-weight: 100 900;
+      font-style: normal;
+      font-display: swap;
+    }
+    */
+
+        :root {
+            --bg: #ffffff;
+            --fg: #111111;
+            --muted: #6b7280;
+            /* gray-500 */
+            --link: #111111;
+            --link-underline: rgba(17, 17, 17, 0.25);
+            --accent: #0ea5e9;
+            /* sky-500 */
+            --border: #e5e7eb;
+            /* gray-200 */
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #0a0a0a;
+                --fg: #e5e7eb;
+                /* gray-200 */
+                --muted: #9ca3af;
+                /* gray-400 */
+                --link: #e5e7eb;
+                --link-underline: rgba(229, 231, 235, 0.25);
+                --accent: #38bdf8;
+                /* sky-400 */
+                --border: #1f2937;
+                /* gray-800 */
+            }
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            height: 100%;
+        }
+
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--fg);
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .wrap {
+            max-width: 60ch;
+            padding: 16vh 1.25rem 4rem;
+            margin: 0 auto;
+        }
+
+        header h1 {
+            font-size: clamp(1.5rem, 2.8vw + 1rem, 2.5rem);
+            margin: 0 0 0.25rem 0;
+            letter-spacing: -0.01em;
+        }
+
+        header p {
+            margin: 0;
+            color: var(--muted);
+        }
+
+        main {
+            margin-top: 2.5rem;
+        }
+
+        a {
+            color: var(--link);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+            text-decoration-color: var(--link-underline);
+        }
+
+        a[target="_blank"]::after {
+            content: " ↗";
+            opacity: 0.6;
+        }
+
+        .section {
+            margin: 2rem 0;
+        }
+
+        .section h2 {
+            font-size: 0.9rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin: 0 0 0.75rem 0;
+        }
+
+        ul.links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        ul.links li {
+            padding: 0.5rem 0;
+            border-top: 1px solid var(--border);
+        }
+
+        ul.links li:last-child {
+            border-bottom: 1px solid var(--border);
+        }
+
+        .note {
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+        footer {
+            margin-top: 3rem;
+            color: var(--muted);
+            font-size: 0.85rem;
+        }
+
+        footer nav a {
+            margin-right: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <header>
+            <h1>Colin Duffy</h1>
+            <p>engineer • builds hardware, data, and little websites</p>
+        </header>
+
+        <main>
+            <section class="section">
+                <h2>Now</h2>
+                <p class="note">Working on hydrogen systems, embedded controllers, and a few ML experiments.</p>
+            </section>
+
+            <section class="section">
+                <h2>Links</h2>
+                <ul class="links">
+                    <li><a href="#">Projects</a></li>
+                    <li><a href="#" target="_blank" rel="noopener">Github</a></li>
+                    <li><a href="#" target="_blank" rel="noopener">Resume</a></li>
+                    <li><a href="mailto:colin@lumindt.com">Email</a></li>
+                </ul>
+            </section>
+
+            <section class="section">
+                <h2>About</h2>
+                <p>I like simple, fast sites. This one ships with no JavaScript, no build step, and a single HTML file.
+                    It uses a system monospace stack so it loads instantly. When budget allows, I’ll swap to Berkeley
+                    Mono.</p>
+            </section>
+        </main>
+
+        <footer>
+            <nav>
+                <a href="/colophon">Colophon</a>
+                <a href="/pgp" title="PGP">PGP</a>
+                <a href="/rss.xml" title="RSS">RSS</a>
+            </nav>
+            <div>© <span id="y"></span> Colin Duffy</div>
+        </footer>
+    </div>
+
+    <script>
+        // tiny enhancement: current year (safe even with JS disabled)
+        document.getElementById('y').textContent = new Date().getFullYear();
+    </script>
+</body>
+
+</html>
