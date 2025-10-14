@@ -149,6 +149,29 @@
             font-size: 0.9rem;
         }
 
+        /* put with your other rules */
+        .breaker {
+            margin: 2.25rem 0 2.5rem;
+        }
+
+        .breaker img {
+            display: block;
+            width: 100%;
+            height: clamp(220px, 40vh, 420px);
+            /* tall but not crazy on huge screens */
+            object-fit: cover;
+            /* crops gracefully */
+            border-radius: 16px;
+            border: 1px solid var(--border);
+        }
+
+        .breaker figcaption {
+            color: var(--muted);
+            font-size: 0.85rem;
+            margin-top: 0.5rem;
+        }
+
+
         footer {
             margin-top: 3rem;
             color: var(--muted);
@@ -168,11 +191,15 @@
             <p>Getting atoms and bits to play nice together.</p>
         </header>
 
+        <figure class="breaker">
+            <img src="/img/weirdo_beach_2.png" width="160" height="160">
+        </figure>
+
         <main>
             <section class="section">
-                <img src="/img/weirdo_beach_2.png" alt="circuit-bending-beach" width="160" height="160">
+                <!-- <img src="/img/weirdo_beach_2.png" alt="circuit-bending-beach" width="160" height="160">
                 <link rel="icon" href="/img/favicon.png">
-                <meta property="og:image" content="https://cpduffy.github.io/img/og.png">
+                <meta property="og:image" content="https://cpduffy.github.io/img/og.png"> -->
                 <h2>Now</h2>
                 <p class="note">Mechanical Engineer for large-scale energy storage systems @ LUMINDT</p>
             </section>
